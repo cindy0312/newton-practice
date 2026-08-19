@@ -1,4 +1,6 @@
 def optimize(start, f):
+    """Implementation of Newton’s method for optimization. Accepting a starting value and the function to optimize. Returning 
+    the root found."""
     h = 1e-8
     x = start
     
