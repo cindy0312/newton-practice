@@ -1,2 +1,2 @@
 # newton-practice
-implementing the newton method
+Implementing the newton method.
