@@ -40,3 +40,36 @@ def optimize(start, f):
     import warnings
     if x > 3:
        warnings.warn(f"{x} is greater than 3.", UserWarning)
+
+import numpy as np
+import numdifftools as nd
+
+
+def gradient(f, x):
+    """Calculate the gradient of f at x."""
+    gradient_function = nd.Gradient(f)
+    return gradient_function(x)
+
+
+def hessian(f, x):
+    """Calculate the Hessian of f at x."""
+    hessian_function = nd.Hessian(f)
+    return hessian_function(x)
+
+
+def optimize(x0, f):
+    """Minimize a multivariate function using Newton's method."""
+    x = np.asarray(x0, dtype=float)
+
+    for _ in range(100):
+        gradient = gradient(f, x)
+        hessian = hessian(f, x)
+
+        new_x = x - np.linalg.solve(hessian, gradient)
+
+        if np.linalg.norm(new_x - x) < 1e-5:
+            return new_x
+
+        x = new_x
+
+    raise RuntimeError("Newton's method did not converge.")
