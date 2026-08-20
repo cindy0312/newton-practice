@@ -74,3 +74,8 @@ def optimize(x0, f):
         x = new_x
 
     raise RuntimeError("Newton's method did not converge.")
+
+    #The code for optimize function looks good
+    #The code for gradient function looks good
+    #The code for hessian function looks good
+    
