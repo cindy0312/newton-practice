@@ -41,9 +41,10 @@ def optimize(start, f):
     if x > 3:
        warnings.warn(f"{x} is greater than 3.", UserWarning)
 
+
+
 import numpy as np
 import numdifftools as nd
-
 
 def gradient(f, x):
     """Calculate the gradient of f at x."""
